@@ -1,17 +1,9 @@
-import CardList from "../../(components)/CardList/page";
-// export default function Home({params}){
-//     const {id} =params;
-//     return (
-//         <>
-//             {id}
-//             <p>card details</p>
-//         </>
-//     )
-// }
 
 
 import axios from "axios";
 import { Movie } from '@/interfaces/movieInterface';
+import Link  from 'next/link';
+import Img from "next/image";
 
 async function getmoviedeatils(id: string): Promise<Movie> {
   try {
@@ -34,28 +26,39 @@ export default async function Home({params} : {params:{cardId: string}}) {
 
   // {console.log(movies);}
   return (
-     <div className="movie-card w-full  py-10 b-2 b-solid ">
-      
-        {/* <Img 
-          width={200}
+     <div className=" w-80-p m-auto  py-10 px-10 flex bg-">
+      {/* <Link href={`/carddetails/${movie.id}`}> */}
+        <Img 
+          width={300}
           height={300}
           src={image_url} 
-          alt={movie.title || movie.name || 'Movie poster'} 
-          className="movie-card__image w-200"
-        /> */}
-      <img src={image_url} alt="" />
+          // alt={ 'Movie poster'} 
+          className="w-full rounded-5 w-30-p h-30-p"
+        />
+      {/* </Link> */}
+        {/* <img src={image_url} alt="" /> */}
       
-      <div className="movie-card__content mx-10 mt-10">
-        <h3 className="font-600 font-20 text-black">
-          {movie.name}
-        </h3>
-        <div className="movie-card__rating mt-5">
-          <span className="text-yellow font-20">★</span>
-          {/* <span>{movie.vote_average.toFixed(1)}</span> */}
+      <div className="  mt-10 w-60-p ml-10 ">
+        <h2 className="font-600 font-20 text-black mb-10">
+          {movie.title || movie.name}
+          {/* Hello */}
+        </h2>
+        <h4>{movie.overview}</h4>
+
+        <div className="mt-5 flex  justify-content-space-between">
+          <span className="font-24 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span>
+          <div className=" flex items-center ">
+            
+          {/* <div onClick={update_local} className="text-gray font-30 pointer">★</div> */}
+            
+          </div>
+          
         </div>
+        <button  className="w-full  bg-blue font-600 text-white font-20  py-12 rounded-10 border-none pointer mt-10">Download</button>
       </div>
+
       
-      {/* <button onClick={push_to_local} className="bg-blue font-600 text-white font-20 w-full py-12 rounded-10 border-none pointer mt-10">Add to Favorite</button> */}
+      
     </div>
   );
 }

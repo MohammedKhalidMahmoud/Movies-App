@@ -3,6 +3,7 @@
 import axios from "axios";
 import CardList from "./(components)/CardList/page";
 import { Movie } from '@/interfaces/movieInterface';
+import Navbar from "./(components)/Navbar/page";
 
 function search(){
   // e.preventDefault();
@@ -46,8 +47,8 @@ export default async function Home() {
    
      
     <main>
-      
-      <CardList movies={movies} />
+      <Navbar />
+      <CardList movies={movies} className="mt-20"/>
     </main>
     </>
     
