@@ -439,7 +439,7 @@ a {
 }
 
 /* backgroud */
-.bg-c-gray{
+.bg-gray{
     background-color: gray;
 }
 
@@ -935,17 +935,34 @@ a {
 .bg-yellow{
     background-color: yellow;
 }
+
 .bg-gold{
     background-color: gold;
 }
 .bg-green{
     background-color: green;
 }
+.bg-lightgreen{
+    background-color: lightgreen;
+}
+.bg-darkgreen{
+    background-color: darkgreen;
+}
 .bg-blue{
     background-color: blue;
 }
+.bg-lightblue{
+    background-color: lightblue;
+}
+.bg-darkblue{
+    background-color: darkblue;
+}
 .bg-red{
     background-color: red;
+}
+
+.bg-darkred{
+    background-color: darkred;
 }
 .bg-tomato{
     background-color: tomato;
@@ -953,6 +970,19 @@ a {
 .bg-lightgray{
     background-color: lightgray;
 }
+.bg-darkgray{
+    background-color: darkgray;
+}
+.bg-cyan{
+    background-color: cyan;
+}
+.bg-aqua{
+    background-color: aqua;
+}
+.bg-teal{
+    background-color: teal;
+}
+
 /* position */
 .fixed{
     position:fixed;
@@ -3221,4 +3251,24 @@ a {
 
 .translate-x-center{
     transform: translateX(-50%);
+}
+
+@media only screen and (min-width: 768px) {
+    .movie-card{
+        width:50%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .movie-card{
+        width:33%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .movie-card{
+        width:25%;
+    }
 }

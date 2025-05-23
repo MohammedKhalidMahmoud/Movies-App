@@ -1,7 +1,8 @@
+"use client";
 import axios from "axios";
 
 import { Movie } from '@/interfaces/movieInterface';
-
+import CardList from "../(components)/CardList/page";
 // async function getcachedMovies(): Promise<Movie[]> {
 //   try {
 //     const response = await axios.get(
@@ -15,11 +16,11 @@ import { Movie } from '@/interfaces/movieInterface';
 // }
 
 export default async function Home() {
-  const movies = JSON.parse(localStorage.getItem("movie")) || [];
+  const favoritemovies = JSON.parse(localStorage.getItem("movie")) || [];
   // {console.log(movies);}
   return (
     <main>
-      <CardList movies={movies} />
+      <CardList movies={favoritemovies} />
     </main>
   );
 }
