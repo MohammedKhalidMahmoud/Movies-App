@@ -26,31 +26,33 @@ export default async function Home({params} : {params:{cardId: string}}) {
 
   // {console.log(movies);}
   return (
-     <div className=" w-80-p m-auto  py-10 px-10 flex bg-">
+     <div className=" w-80-p m-auto  py-10 px-10  mt-80 details_div">
       {/* <Link href={`/carddetails/${movie.id}`}> */}
         <Img 
           width={300}
           height={300}
           src={image_url} 
-          // alt={ 'Movie poster'} 
-          className="w-full rounded-5 w-30-p h-30-p"
+          alt={ 'Movie poster'} 
+          className="w-full rounded-5  h-30-p image"
         />
       {/* </Link> */}
         {/* <img src={image_url} alt="" /> */}
       
-      <div className="  mt-10 w-60-p ml-10 ">
+      <div className="  mt-10  ml-10 summary">
         <h2 className="font-600 font-20 text-black mb-10">
-          {movie.title || movie.name}
-          {/* Hello */}
+          Summary:
+          { movie.name}
         </h2>
-        <h4>{movie.overview}</h4>
+        <h3>{movie.overview}</h3>
 
-        <div className="mt-5 flex  justify-content-space-between">
-          <span className="font-24 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span>
-          <div className=" flex items-center ">
+        <div className="mt-5 ">
+          {/* <span className="font-24 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span> */}
+          <div className=" flex items-center mt-10">
+           <h3>Reviews:</h3><br /> 
             
           {/* <div onClick={update_local} className="text-gray font-30 pointer">★</div> */}
-            
+            <h4 className="bg-lightblue px-5 py-5 rounded-5 ml-5">{movie.vote_average.toFixed(1)}</h4>
+            <h4>({movie.vote_count})</h4>
           </div>
           
         </div>

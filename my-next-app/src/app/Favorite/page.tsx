@@ -1,25 +1,37 @@
 "use client";
-import axios from "axios";
 
 import { Movie } from '@/interfaces/movieInterface';
-import CardList from "../(components)/CardList/page";
-// async function getcachedMovies(): Promise<Movie[]> {
-//   try {
-//     const response = await axios.get(
-//       'https://api.themoviedb.org/3/trending/all/day?api_key=439a143cbf0a0e823ff8a1afbf446819'
-//     );
-//     return response.data.results;
-//   } catch (error) {
-//     console.error("Error fetching movies:", error);
-//     return [];
-//   }
-// }
+const CardList = (await import("../(components)/CardList/page")).default; // CardList is imported dynamically (when needed)
+// const CardList = (await import("../(components)/CardList/page")).default;
+import { useState , useEffect} from "react";
 
-export default async function Home() {
-  const favoritemovies = JSON.parse(localStorage.getItem("movie")) || [];
-  // {console.log(movies);}
+export default  function Home() {
+  const [loading , setLoading]= useState(true);
+   const [favoritemovies, setFavoritemovies]= useState([]);
+  function handleStorageChange(){
+    console.log("hello");
+    console.log("hello");
+    setFavoritemovies(JSON.parse(localStorage.getItem("movie")) || []);
+  }
+  useEffect(() => {
+    
+    setLoading(false);
+    setFavoritemovies(JSON.parse(localStorage.getItem("movie")) || []);
+    window.addEventListener('storage', handleStorageChange);
+    console.log("Event listener added");
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      console.log("Event listener removed");
+    };
+  }, []);
+
+  
+
+  if(! loading && favoritemovies.length===0){
+    return <div className="text-center font-xxl bold text-blue absolute top-50-p left-50-p translate-middle">No Favorite Movies</div>
+  }
   return (
-    <main>
+    <main className='mt-30-p favorites-div'>
       <CardList movies={favoritemovies} />
     </main>
   );

@@ -3,29 +3,40 @@
 
 import styles from "./page.module.css"
 import SVG from "../../(utils)/Star/page"
+import { useState, useEffect } from "react";
 import Img from "next/image";
 // import {Roboto} from "next/font/google";
 import { Movie } from "@/interfaces/movieInterface"
 import Link from 'next/link';
 // const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 export default function Home({movie} : Movie){
- 
+    const [isFavorite, setIsFavorite] = useState(false);
     const image_url=`https://image.tmdb.org/t/p/w500/${movie.poster_path}`
- 
+
+    useEffect(() => {
+    // Check if movie is in favorites when component mounts
+    const existingMovies = JSON.parse(localStorage.getItem("movie") || "[]");
+    setIsFavorite(existingMovies.some((m: Movie) => m.id === movie.id));
+    // console.log(isFavorite);
+  }, []);
+
     function togglestars(e){
       e.target.classList.toggle("text-yellow");
       e.target.classList.toggle("text-gray");
     }
 
-    function fetch_movies_form_local_storage(){
-
+    function fun(existingMovies : Movie[]){
+      const movieIndex = existingMovies.findIndex((m:Movie) => m.id === movie.id);
+              
     }
+
     function remove_from_local(existingMovies : Movie[]){
       const movieIndex = existingMovies.findIndex((m:Movie) => m.id === movie.id);
         if(movieIndex !== -1){
           existingMovies.splice(movieIndex, 1);
           localStorage.setItem("movie", JSON.stringify([...(existingMovies)]))
         }
+        window.dispatchEvent(new Event("storage"));
     }
 
     function update_local(e){
@@ -57,8 +68,12 @@ export default function Home({movie} : Movie){
         <div className="mt-5 flex  justify-content-space-between">
           <span className="font-20 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span>
           <div className=" flex items-center ">
-            
-          <div onClick={update_local} className="text-gray font-30 pointer">★</div>
+          
+          {
+          isFavorite ? (<div onClick={update_local} className="text-yellow font-30 pointer">★</div>) :
+                        (<div onClick={update_local} className="text-gray font-30 pointer">★</div>)
+          }
+          
             
           </div>
           
