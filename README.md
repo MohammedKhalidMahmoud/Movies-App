@@ -18,7 +18,7 @@ A responsive movie discovery application built with Next.js, TypeScript, and TMD
 - TMDB API key
 
 ### Steps
-```bash
+
 # 1. Clone repository
 git clone https://github.com/MohammedKhalidMahmoud/Noon-assesment-task.git
 cd Noon-assesment-task
@@ -31,7 +31,7 @@ echo "NEXT_PUBLIC_TMDB_API_KEY=your_api_key_here" > .env.local
 
 # 4. Run development server
 npm run dev
-```bash
+
 
 
 Open http://localhost:3000 in your browser.
