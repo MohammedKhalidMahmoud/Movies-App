@@ -17,26 +17,26 @@ A responsive movie discovery application built with Next.js, TypeScript, and TMD
 - npm/yarn
 - TMDB API key
 
-### Steps
+## Steps
 
-# 1. Clone repository
+### 1. Clone repository
 git clone https://github.com/MohammedKhalidMahmoud/Noon-assesment-task.git
 cd Noon-assesment-task
 
-# 2. Install dependencies
+### 2. Install dependencies
 npm install
 
-# 3. Set up environment variables
+### 3. Set up environment variables
 echo "NEXT_PUBLIC_TMDB_API_KEY=your_api_key_here" > .env.local
 
-# 4. Run development server
+### 4. Run development server
 npm run dev
 
 
 
 Open http://localhost:3000 in your browser.
 
-🧠 Design Decisions & Challenges
+# 🧠 Design Decisions & Challenges
 Technical Choices
 Next.js App Router
 
@@ -49,22 +49,22 @@ TypeScript Integration to reduce runtime errors.
 Created interfaces for API responses (e.g., Movie interface)
 
 
-Performance Optimization
+## Performance Optimization
 
 // Example: Dynamic component loading
 const CardList = dynamic(() => import('./CardList'), { 
   loading: () => <SkeletonLoader /> 
 });
 
-Challenges Faced
+# Challenges Faced
 Challenge	Solution
 API rate limiting	Implemented client-side caching
 Hydration errors	Used useEffect for client-side operations
 
 
-📈 Potential Improvements
-Add Jest/React Testing Library
+# 📈 Potential Improvements
+- Add Jest/React Testing Library
 
-Implement server-side caching
+- Implement server-side caching
 
-Dark mode toggle
+- Dark mode toggle
