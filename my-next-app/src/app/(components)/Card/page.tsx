@@ -64,11 +64,20 @@ export default function Home({movie} : Movie){
         <h3 className="font-600 font-20 text-black">
           {movie.title || movie.name}
         </h3>
-    
+        
+        
         <div className="mt-5 flex  justify-content-space-between">
-          <span className="font-20 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span>
-          <div className=" flex items-center ">
+          {
+            movie.media_type && <span className="font-20 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span>
+
+          }
+          {
+            !movie.media_type && <span className="font-20 bg-lightblue px-5 py-5 rounded-5">{movie.vote_average.toFixed(1)}</span>
+
+          }
           
+          <div className=" flex items-center ">
+        
           {
           isFavorite ? (<div onClick={update_local} className="text-yellow font-30 pointer">★</div>) :
                         (<div onClick={update_local} className="text-gray font-30 pointer">★</div>)
