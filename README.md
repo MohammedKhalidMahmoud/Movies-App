@@ -2,21 +2,20 @@
 
 A responsive movie discovery application built with Next.js, TypeScript, and TMDB API as part of Noon's technical assessment.
 
-![App Screenshot](/public/screenshot.png) *(Upload a screenshot and update path)*
 
 ## 🌟 Features
 - Instant movie search with real-time API results
 - Responsive design for all devices
 - Type-safe React components
 - Optimized performance with lazy loading
-- LocalStorage integration for favorites *(if implemented)*
+- LocalStorage integration for favorites 
 
 ## 🛠 Installation Guide
 
 ### Prerequisites
 - Node.js (v18+)
 - npm/yarn
-- TMDB API key *(free tier)*
+- TMDB API key
 
 ### Steps
 ```bash
@@ -43,11 +42,10 @@ Enabled efficient routing and static generation
 
 Implemented dynamic imports for code splitting
 
-TypeScript Integration
+TypeScript Integration to reduce runtime errors.
 
 Created interfaces for API responses (e.g., Movie interface)
 
-Reduced runtime errors by 40% during development
 
 Performance Optimization
 
@@ -60,25 +58,7 @@ Challenges Faced
 Challenge	Solution
 API rate limiting	Implemented client-side caching
 Hydration errors	Used useEffect for client-side operations
-Responsive cards	CSS Grid with fractional units
-🎁 Bonus Features Implemented
-Advanced Search Filtering (if applicable)
 
-Added year range selector
-
-Genre-based filtering
-
-Enhanced UX
-
-Debounced search input (300ms delay)
-
-Loading skeletons for smoother transitions
-
-Accessibility
-
-ARIA labels for screen readers
-
-Keyboard navigation support
 
 📈 Potential Improvements
 Add Jest/React Testing Library
