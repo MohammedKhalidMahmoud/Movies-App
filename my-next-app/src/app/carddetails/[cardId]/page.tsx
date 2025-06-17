@@ -9,7 +9,6 @@ async function getmoviedeatils(id: string): Promise<Movie> {
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=439a143cbf0a0e823ff8a1afbf446819`
-      
     );
     return response.data;
   } catch (error) {
@@ -26,8 +25,8 @@ export default async function Home({params} : {params:{cardId: string}}) {
 
   // {console.log(movies);}
   return (
-     <div className=" w-80-p m-auto  py-10 px-10  mt-80 details_div">
-      {/* <Link href={`/carddetails/${movie.id}`}> */}
+     <section className=" w-80-p m-auto  py-10 px-10  mt-80 details_div">
+      
         <Img 
           width={300}
           height={300}
@@ -35,17 +34,15 @@ export default async function Home({params} : {params:{cardId: string}}) {
           alt={ 'Movie poster'} 
           className="w-full rounded-5  h-30-p image"
         />
-      {/* </Link> */}
-        {/* <img src={image_url} alt="" /> */}
       
-      <div className="  mt-10  ml-10 summary">
+      <section className="  mt-10  ml-10 summary">
         <h2 className="font-600 font-20 text-black mb-10">
-          Summary:
+          Summary:<br/>
           { movie.name}
         </h2>
         <h3>{movie.overview}</h3>
 
-        <div className="mt-5 ">
+        <section className="mt-5 ">
           {/* <span className="font-24 bg-lightblue px-5 py-5 rounded-5">{movie.media_type}</span> */}
           <div className=" flex items-center mt-10">
            <h3>Reviews:</h3><br /> 
@@ -55,12 +52,12 @@ export default async function Home({params} : {params:{cardId: string}}) {
             <h4>({movie.vote_count})</h4>
           </div>
           
-        </div>
+        </section>
         <button  className="w-full  bg-blue font-600 text-white font-20  py-12 rounded-10 border-none pointer mt-10">Download</button>
-      </div>
+      </section>
 
       
       
-    </div>
+    </section>
   );
 }

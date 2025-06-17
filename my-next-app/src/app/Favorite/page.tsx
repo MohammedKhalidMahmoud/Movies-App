@@ -9,14 +9,13 @@ export default  function Home() {
   const [loading , setLoading]= useState(true);
    const [favoritemovies, setFavoritemovies]= useState([]);
   function handleStorageChange(){
-    console.log("hello");
-    console.log("hello");
-    setFavoritemovies(JSON.parse(localStorage.getItem("movie")) || []);
+    
+    setFavoritemovies(JSON.parse(localStorage.getItem("movie") || "[]"));
   }
   useEffect(() => {
     
     setLoading(false);
-    setFavoritemovies(JSON.parse(localStorage.getItem("movie")) || []);
+    setFavoritemovies(JSON.parse(localStorage.getItem("movie") || "[]"));
     window.addEventListener('storage', handleStorageChange);
     console.log("Event listener added");
     return () => {
