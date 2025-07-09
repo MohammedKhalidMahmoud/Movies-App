@@ -1,7 +1,7 @@
 
 
 import axios from "axios";
-import { Movie } from '@/interfaces/movieInterface';
+import { Movie } from '@/Interfaces/movieInterface';
 import Link  from 'next/link';
 import Img from "next/image";
 

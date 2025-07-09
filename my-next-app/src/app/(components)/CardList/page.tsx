@@ -1,5 +1,5 @@
 import Card from "../Card/page"
-import { Movie } from '../../../interfaces/movieInterface';
+import { Movie } from '../../../Interfaces/movieInterface';
 
 export default function Home({ movies } : { movies: Movie[]}){
     return (

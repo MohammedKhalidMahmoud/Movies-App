@@ -5,30 +5,27 @@ import React, { useState, useEffect } from "react";
 import Img from "next/image";
 import Link from 'next/link';
 // import {Roboto} from "next/font/google";
-import { Movie } from "@/interfaces/movieInterface"
+import { Movie } from "@/Interfaces/movieInterface"
 
 // const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 export default function Home({movie} : {movie: Movie} ){
-    const [isFavorite, setIsFavorite] = useState(false);
+  //state 
+    // const [isFavorite, setIsFavorite] = useState(false);
     const image_url=`https://image.tmdb.org/t/p/w500/${movie.poster_path}`
 
-    useEffect(() => {
-    // Check if movie is in favorites when component mounts
-    const existingMovies = JSON.parse(localStorage.getItem("movie") || "[]");
-    setIsFavorite(existingMovies.some((m: Movie) => m.id === movie.id));
-    // console.log(isFavorite);
-  }, []);
+  //   useEffect(() => {
+  //   // Check if movie is in favorites when component mounts
+  //   const existingMovies = JSON.parse(localStorage.getItem("movie") || "[]");
+  //   setIsFavorite(existingMovies.some((m: Movie) => m.id === movie.id));
+  //   // console.log(isFavorite);
+  // }, []);
 
-    function togglestars(e: React.MouseEvent<HTMLElement>) {
+  function togglestars(e: React.MouseEvent<HTMLElement>) {
       const target= e.target as HTMLElement; // type assertion to HTMLElement
       target.classList.toggle("text-yellow");
       target.classList.toggle("text-gray");
     }
 
-    // function fun(existingMovies : Movie[]){
-    //   const movieIndex = existingMovies.findIndex((m:Movie) => m.id === movie.id);
-              
-    // }
 
     function removeFromLocal(existingMovies : Movie[]){
       const movieIndex = existingMovies.findIndex((m:Movie) => m.id === movie.id);
@@ -78,10 +75,10 @@ export default function Home({movie} : {movie: Movie} ){
           
           <div className=" flex items-center ">
         
-          {
+          {/* {
           isFavorite ? (<div onClick={updateLocal} className="text-yellow font-30 pointer">★</div>) :
-                        (<div onClick={updateLocal} className="text-gray font-30 pointer">★</div>)
-          }
+                       (<div onClick={updateLocal} className="text-gray font-30 pointer">★</div>)
+          } */}
           
             
           </div>
