@@ -1,8 +1,8 @@
 
-"use client";
+// "use client";
 
 import Link from "next/link";  //importing customized next link component  
-import { title } from "process";
+// import { title } from "process";
 
 export default function Navbar() {
   const navLinks=[

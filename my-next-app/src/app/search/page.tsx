@@ -3,7 +3,7 @@
 // import axios from "axios";
 import { useEffect, useState } from "react";
 import {Movie} from "../../Interfaces/movieInterface";
-import Img from "next/image";
+// import Img from "next/image";
 const Link = (await import('next/link')).default; // Link is imported dynamically (when needed)
 const CardList = (await import("../(components)/CardList/page")).default; // CardList is imported dynamically (when needed)
 

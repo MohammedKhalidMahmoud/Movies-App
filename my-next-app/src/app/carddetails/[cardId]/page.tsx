@@ -2,15 +2,18 @@
 
 import axios from "axios";
 import { Movie } from '@/Interfaces/movieInterface';
-import Link  from 'next/link';
+// import Link  from 'next/link';
 import Img from "next/image";
+import { IMAGE_BASE_URl } from "@/Constants.";
 
-async function getmoviedeatils(id: string): Promise<Movie> {
+async function getmoviedeatils(id: string): Promise<object> {
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=439a143cbf0a0e823ff8a1afbf446819`
     );
+    console.log(typeof response.data);
     return response.data;
+    
   } catch (error) {
     console.error("Error fetching movies:", error);
     return [];
@@ -21,7 +24,7 @@ export default async function Home({params} : {params:{cardId: string}}) {
   const {cardId:id} =params;
   console.log(id);
   const movie = await getmoviedeatils(id);
-  const image_url=`https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+  const image_url=`${IMAGE_BASE_URl}/${movie.poster_path}`
 
   // {console.log(movies);}
   return (

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import CardList from '../CardList/page'
+// import CardList from '../CardList/page'
 export default async function Home() {
   try {
     const response = await axios.get(
