@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Img from "next/image";
 import Link from "next/link";
+import placeholder from "../../../../public/placeholder.jpg"
 // import {Roboto} from "next/font/google";
 import { Movie } from "@/Interfaces/movieInterface";
 import { IMAGE_BASE_URl } from "@/Constants.";
@@ -55,14 +56,22 @@ export default function Home({ movie }: { movie: Movie }) {
   return (
     <section className="movie-card w-full  py-10 px-10 ">
       <Link href={`/carddetails/${movie.id}`}>
-        <Img
+        {movie.poster_path===null? <Img
+          width={300} // Required
+          height={300} // Required
+          src={placeholder}
+          alt={movie.name || "Movie poster"}
+          className="w-full rounded-5"
+          priority // Optional: Preload above-the-fold images
+        />: <Img
           width={300} // Required
           height={300} // Required
           src={image_url}
           alt={movie.name || "Movie poster"}
           className="w-full rounded-5"
           priority // Optional: Preload above-the-fold images
-        />
+        /> }
+        
       </Link>
 
       <section className="movie-card__content  mt-10">
